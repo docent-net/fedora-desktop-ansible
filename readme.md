@@ -18,7 +18,7 @@ with:
 
  And install specified part with:
 
-`$ ansible-playbook master.yml --tags dropbox`
+`$ ansible-playbook master.yml --tags dropbox,virtualbox`
 
 Maciej Lasyk
 @docent-net
