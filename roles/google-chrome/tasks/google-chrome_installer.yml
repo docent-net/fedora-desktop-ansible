@@ -1,0 +1,16 @@
+---
+# This playbook installs Google-Chrome
+
+- name: Create Google-Chrome repo
+  template:
+    src=google-chrome.repo
+    dest=/etc/yum.repos.d/google-chrome.repo
+    owner=root
+    group=root
+    mode=0600
+
+- name: Import GPG key for this repo
+  command: rpm --import {{ gchrome.repokey }}
+
+- name: Install Google-Chrome package
+  yum: name=google-chrome state=latest

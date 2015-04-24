@@ -1,0 +1,4 @@
+---
+# this playbook includes Google-Chrome installer and configurator
+- include: google-chrome_installer.yml
+  tags: google-chrome
