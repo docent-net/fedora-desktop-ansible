@@ -8,4 +8,6 @@
     - keepassx
     - wget
     - git
+    - git-add
+    - gedit
   tags: pkgs
