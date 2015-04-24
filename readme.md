@@ -4,7 +4,7 @@ Always interested in your comments - write me!
 
 Usage:
 
-1. `yum -y update ansible sudo`
+1. `yum -y install ansible sudo`
 2. Create entry for your user in /etc/sudoers.d/user
 3. Clone this repo
 4. Make sure it works: ansible -m ping fedex-c local
