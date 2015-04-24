@@ -1,0 +1,20 @@
+---
+# This playbook installs Dropbox
+
+- name: Create Dropbox repo
+  template:
+    src=dropbox.repo
+    dest=/etc/yum.repos.d/dropbox.repo
+    owner=root
+    group=root
+    mode=0600
+
+- name: Import GPG key for this repo
+  command: rpm --import {{ dropbox.repokey }}
+
+- name: Install Dropbox package
+  yum: name=nautilus-dropbox state=latest
+  register: output
+
+- debug: msg="Dropbox installed; now configure manually"
+  when: output.rc == 1

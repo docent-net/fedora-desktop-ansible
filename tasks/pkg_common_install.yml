@@ -1,0 +1,11 @@
+- name: Install main packages
+  yum: name={{ item }} state=latest
+  with_items:
+    - terminator
+    - vim
+    - tmux
+    - guake
+    - keepassx
+    - wget
+    - git
+  tags: pkgs

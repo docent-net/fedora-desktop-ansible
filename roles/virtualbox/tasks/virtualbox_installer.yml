@@ -1,0 +1,30 @@
+---
+# This playbook installs Virtualbox
+
+- name: Download Virtualbox installer
+  get_url:
+    url=http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+    dest=/etc/yum.repos.d/virtualbox.repo
+
+- name: Update kernel to the latest version
+  yum: name=kernel* state=latest
+
+- name: Install reuired packages
+  yum: name={{ item }} state=latest
+  with_items:
+    - binutils
+    - gcc 
+    - make 
+    - patch 
+    - libgomp 
+    - glibc-headers 
+    - glibc-devel 
+    - kernel-headers 
+    - kernel-devel
+    - dkms
+
+- name: Install Virtualbox package
+  yum: name=VirtualBox-4.3 state=latest
+
+- name: Update Virtualbox driver
+  shell: /etc/init.d/vboxdrv setup

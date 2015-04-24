@@ -1,0 +1,12 @@
+---
+# This playbook installs LibreOffice
+
+- name: Install packages
+  yum: name={{ item }} state=latest
+  with_items:
+    - libreoffice
+    - libreoffice-langpack-pl
+    - libreoffice-calc
+    - libreoffice-impress
+    - libreoffice-writer
+    - libreoffice-draw

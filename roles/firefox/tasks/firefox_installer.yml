@@ -1,0 +1,13 @@
+---
+# This playbook installs Firefox
+
+- name: Install Firefox package
+  yum: name=firefox state=latest
+
+- name: Download Flash installer
+  get_url:
+    url=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
+    dest=/tmp/flash.rpm
+
+- name: Install flash package
+  yum: name=/tmp/flash.rpm state=present

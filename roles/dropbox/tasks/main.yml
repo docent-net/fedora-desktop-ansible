@@ -1,0 +1,4 @@
+---
+# this playbook includes Dropbox installer and configurator
+- include: dropbox_installer.yml
+  tags: dropbox

@@ -1,0 +1,4 @@
+[Dropbox]
+name=Dropbox Repository
+baseurl=http://linux.dropbox.com/fedora/$releasever/
+gpgkey={{ dropbox.repokey }}

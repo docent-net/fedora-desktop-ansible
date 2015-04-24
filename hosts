@@ -1,0 +1,2 @@
+[local]
+fedex	ansible_ssh_host=localhost
