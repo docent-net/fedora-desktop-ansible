@@ -2,12 +2,11 @@
 - name: Fedex provisioner
   hosts: localhost
   sudo: yes
-  vars:
-    temp_dir: /tmp
 
   roles:
     - prepare_env
     - packages
+    - git
     - dropbox
     - skype
     - libreoffice
