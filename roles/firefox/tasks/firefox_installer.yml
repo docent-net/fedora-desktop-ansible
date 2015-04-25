@@ -4,10 +4,18 @@
 - name: Install Firefox package
   yum: name=firefox state=latest
 
-- name: Download Flash installer
+- name: Download Adobe Release
   get_url:
     url=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
-    dest={{ temp_dir }}/flash.rpm
+    dest={{ temp_dir }}/adobe-release.rpm
 
-- name: Install flash package
-  yum: name={{ temp_dir }}/flash.rpm state=present
+- name: Install Adobe Release
+  yum: name={{ temp_dir }}/adobe-release.rpm state=present
+
+- name: Download Flash Player
+  get_url:
+    url=https://fpdownload.macromedia.com/get/flashplayer/pdc/11.2.202.457/flash-plugin-11.2.202.457-release.x86_64.rpm
+    dest={{ temp_dir }}/flashplayer.rpm
+
+- name: Install Flash Player
+  yum: name={{ temp_dir }}/flashplayer.rpm state=present

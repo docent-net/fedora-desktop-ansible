@@ -28,3 +28,11 @@
 
 - name: Update Virtualbox driver
   shell: /etc/init.d/vboxdrv setup
+
+- name: Download Extension Pack
+  get_url:
+    url=http://download.virtualbox.org/virtualbox/4.3.26/Oracle_VM_VirtualBox_Extension_Pack-4.3.26-98988.vbox-extpack
+    dest={{ temp_dir }}/Oracle_VM_VirtualBox_Extension_Pack-4.3.26-98988.vbox-extpack
+
+- name: Install Extension Pack
+  shell: vboxmanage extpack install {{ temp_dir }}/Oracle_VM_VirtualBox_Extension_Pack-4.3.26-98988.vbox-extpack
