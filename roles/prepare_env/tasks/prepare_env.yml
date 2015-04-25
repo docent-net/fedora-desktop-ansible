@@ -1,0 +1,7 @@
+---
+# Preparing environment
+
+- name: create temporary dir
+  file:
+    path={{ temp_dir }}
+    state=directory

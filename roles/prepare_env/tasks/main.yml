@@ -1,0 +1,4 @@
+---
+# this playbook prepares env
+- include: prepare_env.yml
+  tags: prepare_env

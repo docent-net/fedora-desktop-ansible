@@ -2,12 +2,12 @@
 - name: Fedex provisioner
   hosts: localhost
   sudo: yes
-
-  tasks:
-    - include: tasks/pkg_update.yml
-    - include: tasks/pkg_common_install.yml
+  vars:
+    temp_dir: /tmp
 
   roles:
+    - prepare_env
+    - packages
     - dropbox
     - skype
     - libreoffice
