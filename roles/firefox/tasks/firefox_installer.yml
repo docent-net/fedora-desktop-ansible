@@ -7,7 +7,7 @@
 - name: Download Flash installer
   get_url:
     url=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
-    dest=/tmp/flash.rpm
+    dest={{ temp_dir }}/flash.rpm
 
 - name: Install flash package
-  yum: name=/tmp/flash.rpm state=present
+  yum: name={{ temp_dir }}/flash.rpm state=present
