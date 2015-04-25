@@ -1,0 +1,10 @@
+---
+# Please adjust following varibles to fit your environment:
+
+temp_dir: /tmp               # temporary dir for downoaded files
+user: docent                 # your user
+group: docent                # your user's primary group
+home_dir: /home/docent       # your user's homedir
+git:
+    username: Maciej Lasyk   # your git Name
+    email: maciek@lasyk.info # your git e-mail address
