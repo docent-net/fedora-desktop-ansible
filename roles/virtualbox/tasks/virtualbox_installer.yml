@@ -9,7 +9,7 @@
 - name: Update kernel to the latest version
   yum: name=kernel* state=latest
 
-- name: Install reuired packages
+- name: Install required packages
   yum: name={{ item }} state=latest
   with_items:
     - binutils
@@ -36,3 +36,6 @@
 
 - name: Install Extension Pack
   shell: vboxmanage extpack install {{ temp_dir }}/Oracle_VM_VirtualBox_Extension_Pack-4.3.26-98988.vbox-extpack
+
+- name: Add system user to vbox group (this is needed e.g. for sharing USB devices)
+  command: usermod -a -G vboxusers {{ user }}
