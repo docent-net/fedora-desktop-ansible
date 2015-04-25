@@ -1,5 +1,5 @@
-This is my official provisioner for the Fedora 21 desktop
-Feel free to use it, modify, contribute etc
+This is my official provisioner for the Fedora 21 XFCE
+desktop. Feel free to use it, modify, contribute etc.
 Always interested in your comments - write me!
 
 Usage:
