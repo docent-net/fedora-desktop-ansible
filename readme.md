@@ -4,7 +4,7 @@ Always interested in your comments - write me!
 
 Usage:
 
-1. Edit **group_vars/all/yml**
+1. Edit **group_vars/all.yml**
 1. `yum -y install ansible sudo`
 2. Create entry for your user in /etc/sudoers.d/user
 3. Clone this repo
