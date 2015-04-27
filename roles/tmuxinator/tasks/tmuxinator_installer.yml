@@ -1,0 +1,8 @@
+---
+# This playbook installs Tmuxinator
+
+- name: Instal prerequisites
+  yum: name=ruby state=latest
+
+- name: Install Tmuxinator
+  shell: gem install tmuxinator

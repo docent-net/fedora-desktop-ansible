@@ -8,6 +8,7 @@
     - packages
     - git
     - oh-my-zsh
+    - tmuxinator
     - dropbox
     - skype
     - libreoffice
