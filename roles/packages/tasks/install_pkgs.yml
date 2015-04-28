@@ -4,10 +4,12 @@
     - terminator
     - vim
     - tmux
-    - guake
     - keepassx
     - wget
     - git
     - gedit
     - strace
+    - ruby
+    - python-virtualenv
+    - pinpoint
   tags: pkgs
