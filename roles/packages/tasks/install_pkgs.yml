@@ -13,4 +13,6 @@
     - python-virtualenv
     - python-virtualenvwrapper
     - pinpoint
+    - ike
+    - mc
   tags: pkgs
