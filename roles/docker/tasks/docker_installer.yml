@@ -4,8 +4,16 @@
 - name: Install Docker package
   yum: name=docker-io state=latest
 
-- name: Add user to dockerroot group
-  command: usermod -a -G dockerroot {{ user }}
+- name: Create docker group
+  group:
+    name=docker
+    state=present
+
+- name: Add user to docker group
+  command: usermod -a -G docker {{ user }}
+
+- name: Change docker sock group
+  command: chgrp docker /var/run/docker.sock
 
 - name: Switch to OverlayFS storage backend
   lineinfile:
