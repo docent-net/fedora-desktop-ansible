@@ -15,6 +15,11 @@
 - name: Change docker sock group
   command: chgrp docker /var/run/docker.sock
 
+- name: Enable docker service
+  service:
+    name=docker
+    enabled=yes
+
 - name: Switch to OverlayFS storage backend
   lineinfile:
     dest=/etc/sysconfig/docker-storage
