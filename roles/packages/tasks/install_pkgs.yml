@@ -15,4 +15,5 @@
     - pinpoint
     - ike
     - mc
+    - gobby
   tags: pkgs

@@ -1,0 +1,5 @@
+---
+# This playbook installs Steam
+
+- name: Install Steam package
+  yum: name=steam state=present
