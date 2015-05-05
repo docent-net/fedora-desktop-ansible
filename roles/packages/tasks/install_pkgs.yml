@@ -16,4 +16,5 @@
     - ike
     - mc
     - gobby
+    - virt-manager
   tags: pkgs
