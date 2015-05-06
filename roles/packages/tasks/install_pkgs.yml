@@ -18,4 +18,5 @@
     - gobby
     - virt-manager
     - multitail
+    - meld
   tags: pkgs
