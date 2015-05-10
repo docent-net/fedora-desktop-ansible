@@ -20,4 +20,6 @@
     - multitail
     - meld
     - unetbootin
+    - ntfs-3g
+    - liveusb-creator
   tags: pkgs
