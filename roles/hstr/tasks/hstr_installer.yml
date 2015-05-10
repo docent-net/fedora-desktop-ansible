@@ -11,7 +11,7 @@
 
 - name: Download HSTR binary
   get_url:
-    url=https://github.com/dvorka/hstr/releases/download/1.16/hh-1.16-bin-64b.tgz
+    url=https://github.com/dvorka/hstr/releases/download/1.17/hh-1.17-bin-64b.tgz
     dest={{ home_dir }}/bin/hh.tgz
 
 - name: Unpack binary
