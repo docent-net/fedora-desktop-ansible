@@ -19,4 +19,5 @@
     - virt-manager
     - multitail
     - meld
+    - unetbootin
   tags: pkgs
