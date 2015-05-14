@@ -22,4 +22,6 @@
     - unetbootin
     - ntfs-3g
     - liveusb-creator
+    - cryptsetup
+    - pv
   tags: pkgs
