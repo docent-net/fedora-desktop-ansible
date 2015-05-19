@@ -24,4 +24,5 @@
     - liveusb-creator
     - cryptsetup
     - pv
+    - tigervnc
   tags: pkgs
