@@ -25,4 +25,5 @@
     - cryptsetup
     - pv
     - tigervnc
+    - nmap
   tags: pkgs
