@@ -29,13 +29,17 @@
 - name: Update Virtualbox driver
   shell: /etc/init.d/vboxdrv setup
 
+- name: Get current vbox version
+  shell: rpm -qa | grep -i VirtualBox | cut -d '_' -f 1 | cut -d '-' -f 3
+  register: vbox_version
+
 - name: Download Extension Pack
   get_url:
-    url=http://download.virtualbox.org/virtualbox/4.3.26/Oracle_VM_VirtualBox_Extension_Pack-4.3.26-98988.vbox-extpack
-    dest={{ temp_dir }}/Oracle_VM_VirtualBox_Extension_Pack-4.3.26-98988.vbox-extpack
+    url=http://download.virtualbox.org/virtualbox/{{ vbox_version.stdout }}/Oracle_VM_VirtualBox_Extension_Pack-{{ vbox_version.stdout }}.vbox-extpack
+    dest={{ temp_dir }}/Oracle_VM_VirtualBox_Extension_Pack-{{ vbox_version.stdout }}.vbox-extpack
 
 - name: Install Extension Pack
-  shell: vboxmanage extpack install {{ temp_dir }}/Oracle_VM_VirtualBox_Extension_Pack-4.3.26-98988.vbox-extpack
+  shell: vboxmanage extpack install {{ temp_dir }}/Oracle_VM_VirtualBox_Extension_Pack-{{ vbox_version.stdout }}.vbox-extpack
 
 - name: Add system user to vbox group (this is needed e.g. for sharing USB devices)
   command: usermod -a -G vboxusers {{ user }}
