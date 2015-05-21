@@ -1,0 +1,11 @@
+---
+# This playbook installs Wireshark
+
+- name: Install packages
+  yum: name={{ item }} state=latest
+  with_items:
+    - wireshark
+    - wireshark-gnome
+
+- name: Add user to wireshark group
+  command: usermod -a -G wireshark {{ user }}
