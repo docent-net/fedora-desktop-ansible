@@ -25,4 +25,5 @@
     - cryptsetup
     - pv
     - tigervnc
+    - unrar
   tags: pkgs
