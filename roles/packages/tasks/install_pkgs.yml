@@ -27,4 +27,6 @@
     - tigervnc
     - unrar
     - nmap
+    - ffmpeg
+    - avidemux
   tags: pkgs
