@@ -28,4 +28,6 @@
     - unrar
     - nmap
     - calibre
+    - ffmpeg
+    - avidemux
   tags: pkgs
