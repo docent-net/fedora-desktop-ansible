@@ -27,4 +27,5 @@
     - tigervnc
     - unrar
     - nmap
+    - calibre
   tags: pkgs
