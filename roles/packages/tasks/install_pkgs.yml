@@ -7,6 +7,7 @@
     - keepassx
     - wget
     - git
+    - gitk
     - gedit
     - strace
     - ruby
