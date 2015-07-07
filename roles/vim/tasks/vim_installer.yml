@@ -1,0 +1,22 @@
+---
+# This playbook installs VIM and its plugins
+
+- name: Install vim package
+  yum: name=vim state=latest
+
+- name: Clone Ultimate vimrc repo
+  git: >
+    repo=https://github.com/amix/vimrc.git
+    accept_hostkey=yes
+    force=yes
+    dest={{ home_dir }}/.vim_runtime
+
+- name: Run Ultimate vimrc installer
+  shell: sh {{ home_dir }}/.vim_runtime/install_awesome_vimrc.sh
+
+- name: Fix permissions
+  file: >
+    path={{ home_dir }}/.vim_runtime
+    owner={{ user }}
+    group={{ group }}
+    recurse=yes
