@@ -21,6 +21,10 @@ with:
 
 `$ ansible-playbook master.yml --tags dropbox,virtualbox`
 
+If you want to only update packages (like `yum update -y` simply run:
+
+`$ ansible-playbook master.yml --tags pkgs,update --skip-tags install`
+
 Maciej Lasyk
 @docent-net
 http://maciej.lasyk.info
