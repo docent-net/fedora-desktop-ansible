@@ -11,6 +11,36 @@
     force=yes
     dest={{ home_dir }}/.vim_runtime
 
+- name: Add favorite plugins
+  git: >
+    dest={{ home_dir }}/.vim_runtime/sources_non_forked/gundo 
+    force=yes 
+    repo=http://github.com/sjl/gundo.vim.git 
+
+- name: Add favorite plugins
+  git: >
+    repo=https://github.com/kakkyz81/evervim.git 
+    dest={{ home_dir }}/.vim_runtime/sources_non_forked/evervim
+    force=yes
+
+- name: Add favorite plugins
+  git: >
+    repo=https://github.com/fholgado/minibufexpl.vim.git 
+    dest={{ home_dir }}/.vim_runtime/sources_non_forked/minibuxeplorer
+    force=yes
+
+- name: Add favorite plugins
+  git: >
+    repo=https://github.com/powerline/powerline.git 
+    dest={{ home_dir }}/.vim_runtime/sources_non_forked/powerline
+    force=yes
+
+- name: Add favorite plugins
+  git: >
+    repo=https://github.com/mattn/gist-vim.git 
+    dest={{ home_dir }}/.vim_runtime/sources_non_forked/gist
+    force=yes
+
 - name: Run Ultimate vimrc installer
   shell: sh {{ home_dir }}/.vim_runtime/install_awesome_vimrc.sh
 
