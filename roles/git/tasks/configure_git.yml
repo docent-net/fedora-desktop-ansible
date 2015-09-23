@@ -1,4 +1,6 @@
 ---
+- name: Install prerequisites
+  yum: name=meld state=latest
 - name: Configure git
   template:
     dest={{ home_dir }}/.gitconfig
