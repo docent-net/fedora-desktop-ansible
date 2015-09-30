@@ -1,0 +1,4 @@
+---
+# this playbook includes fonts playbook
+- include: fonts_installer.yml
+  tags: fonts
