@@ -1,0 +1,15 @@
+---
+# This playbook installs libvirt
+
+- name: Install required packages
+  yum: name={{ item }} state=latest
+  with_items:
+    - libvirt
+    - libvirt-python
+    - virt-top
+
+- name: Enable libvirt service
+  service: >
+    name=libvirtd
+    state=started
+    enabled=yes
