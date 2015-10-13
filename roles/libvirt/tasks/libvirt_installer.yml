@@ -7,6 +7,7 @@
     - libvirt
     - libvirt-python
     - virt-top
+    - qemu-kvm
 
 - name: Enable libvirt service
   service: >
