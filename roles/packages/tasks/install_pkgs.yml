@@ -12,6 +12,7 @@
     - gedit
     - strace
     - ruby
+    - ipython
     - python-virtualenv
     - python-virtualenvwrapper
     - pinpoint
