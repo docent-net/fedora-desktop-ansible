@@ -32,4 +32,8 @@
     - calibre
     - ffmpeg
     - avidemux
+    - htop
+    - lm_sensors
+    - pidgin
+    - gnome-disk-utility
   tags: pkgs
