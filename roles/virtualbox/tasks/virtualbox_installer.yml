@@ -6,6 +6,14 @@
     url=http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
     dest=/etc/yum.repos.d/virtualbox.repo
 
+- name: Download repokey
+  get_url: >
+    dest={{ temp_dir }}/virtualbox.asc
+    url=https://www.virtualbox.org/download/oracle_vbox.asc
+
+- name: Import repokey
+  shell: rpm --import {{ temp_dir }}/virtualbox.asc
+
 - name: Update kernel to the latest version
   yum: name=kernel* state=latest
 
@@ -24,10 +32,10 @@
     - dkms
 
 - name: Install Virtualbox package
-  yum: name=VirtualBox-4.3 state=latest
+  yum: name=VirtualBox-5.0 state=latest
 
 - name: Update Virtualbox driver
-  shell: /etc/init.d/vboxdrv setup
+  shell: /usr/sbin/rcvboxdrv setup
 
 - name: Get current vbox version
   shell: rpm -qa | grep -i VirtualBox | cut -d '_' -f 1 | cut -d '-' -f 3
