@@ -12,9 +12,6 @@
 - name: Add user to docker group
   command: usermod -a -G docker {{ user }}
 
-- name: Change docker sock group
-  command: chgrp docker /var/run/docker.sock
-
 - name: Enable docker service
   service:
     name=docker
