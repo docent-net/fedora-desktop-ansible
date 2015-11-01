@@ -4,6 +4,14 @@
 - name: Install Guake package
   yum: name=guake state=latest
 
+- name: Ensure autostart dir exists
+  file: >
+    path={{ home_dir }}/.config/autostart
+    state=directory
+    mode=0600
+    owner=docent
+    group=docent
+
 - name: Add guake to XFCE autostart
   template:
     src=guake.desktop
