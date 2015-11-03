@@ -2,7 +2,7 @@
 # This playbook installs Docker
 
 - name: Install Docker package
-  yum: name=docker-io state=latest
+  dnf: name=docker-io state=latest
 
 - name: Create docker group
   group:

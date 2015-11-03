@@ -15,10 +15,10 @@
   shell: rpm --import {{ temp_dir }}/virtualbox.asc
 
 - name: Update kernel to the latest version
-  yum: name=kernel* state=latest
+  dnf: name=kernel* state=latest
 
 - name: Install required packages
-  yum: name={{ item }} state=latest
+  dnf: name={{ item }} state=latest
   with_items:
     - binutils
     - gcc 
@@ -32,7 +32,7 @@
     - dkms
 
 - name: Install Virtualbox package
-  yum: name=VirtualBox-5.0 state=latest
+  dnf: name=VirtualBox-5.0 state=latest
 
 - name: Update Virtualbox driver
   shell: /usr/sbin/rcvboxdrv setup

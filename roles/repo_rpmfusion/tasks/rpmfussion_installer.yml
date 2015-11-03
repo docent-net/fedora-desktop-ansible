@@ -11,7 +11,7 @@
     dest=/tmp/rpmfusion.rpm
 
 - name: Install RPMFusion package 1
-  yum: name=/tmp/rpmfusion.rpm state=present
+  dnf: name=/tmp/rpmfusion.rpm state=present
 
 - name: Download RPMFusion package 2
   get_url:
@@ -19,4 +19,4 @@
     dest=/tmp/rpmfusion2.rpm
 
 - name: Install RPMFusion package 2
-  yum: name=/tmp/rpmfusion2.rpm state=present
+  dnf: name=/tmp/rpmfusion2.rpm state=present

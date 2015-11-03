@@ -25,7 +25,7 @@
     group={{ group }}
 
 - name: Make sure zsh is installed
-  yum: name=zsh state=latest
+  dnf: name=zsh state=latest
 
 - name: Set ZSH as default shell for the user
   command: usermod -s /usr/bin/zsh {{ user }}

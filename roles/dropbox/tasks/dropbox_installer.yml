@@ -13,7 +13,7 @@
   command: rpm --import {{ dropbox.repokey }}
 
 - name: Install Dropbox package
-  yum: name=nautilus-dropbox state=latest
+  dnf: name=nautilus-dropbox state=latest
   register: output
 
 - debug: msg="Dropbox installed; now configure manually"

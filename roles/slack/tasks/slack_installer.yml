@@ -2,7 +2,7 @@
 # This playbook installs Slack client on Fedora
 
 - name: Install npm
-  yum: name=npm state=present
+  dnf: name=npm state=present
 
 - name: Install Slack client from npm
   npm: >

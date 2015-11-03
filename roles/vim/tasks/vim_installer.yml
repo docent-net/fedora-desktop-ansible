@@ -2,7 +2,7 @@
 # This playbook installs VIM and its plugins
 
 - name: Install vim package
-  yum: name=vim state=latest
+  dnf: name=vim state=latest
 
 - name: Clone Ultimate vimrc repo
   git: >

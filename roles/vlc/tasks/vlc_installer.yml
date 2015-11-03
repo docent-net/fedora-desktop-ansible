@@ -2,4 +2,4 @@
 # This playbook installs VLC player
 
 - name: Install VLC package
-  yum: name=vlc state=latest
+  dnf: name=vlc state=latest

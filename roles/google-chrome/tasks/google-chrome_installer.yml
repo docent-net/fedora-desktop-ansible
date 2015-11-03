@@ -13,4 +13,4 @@
   command: rpm --import {{ gchrome.repokey }}
 
 - name: Install Google-Chrome package
-  yum: name=google-chrome state=latest
+  dnf: name=google-chrome state=latest

@@ -5,7 +5,7 @@ Always interested in your comments - write me!
 Usage:
 
 1. Edit **group_vars/all.yml**
-1. `yum -y install ansible sudo`
+1. `dnf -y install ansible sudo`
 2. Create entry for your user in /etc/sudoers.d/user
 3. Clone this repo
 4. Make sure it works: `ansible -m ping fedex-c local`
@@ -21,11 +21,10 @@ with:
 
 `$ ansible-playbook master.yml --tags dropbox,virtualbox`
 
-If you want to only update packages (like `yum update -y` simply run:
+If you want to only update packages (like `dnf update -y` simply run:
 
 `$ ansible-playbook master.yml --tags pkgs,update --skip-tags install`
 
 Maciej Lasyk
 @docent-net
 http://maciej.lasyk.info
-

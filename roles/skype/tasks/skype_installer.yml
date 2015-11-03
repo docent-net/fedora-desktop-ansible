@@ -7,7 +7,7 @@
     dest=/tmp/skype.rpm
 
 - name: Install Skype package
-  yum: name=/tmp/skype.rpm state=present
+  dnf: name=/tmp/skype.rpm state=present
   register: output
 
 - debug: msg="Skype installed; now configure manually"

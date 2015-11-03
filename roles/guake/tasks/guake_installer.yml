@@ -2,7 +2,7 @@
 # This playbook installs Guake
 
 - name: Install Guake package
-  yum: name=guake state=latest
+  dnf: name=guake state=latest
 
 - name: Ensure autostart dir exists
   file: >

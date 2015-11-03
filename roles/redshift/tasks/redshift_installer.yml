@@ -2,4 +2,4 @@
 # This playbook installs edshift-GTK on Fedora
 
 - name: Install pkgs
-  yum: name=redshift-gtk state=present
+  dnf: name=redshift-gtk state=present

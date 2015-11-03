@@ -1,5 +1,5 @@
 - name: Install main packages
-  yum: name={{ item }} state=latest
+  dnf: name={{ item }} state=latest
   with_items:
     - terminator
     - vim

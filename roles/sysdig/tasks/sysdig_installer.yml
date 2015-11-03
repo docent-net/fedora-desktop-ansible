@@ -2,7 +2,7 @@
 # This playbook installs Sysdig
 
 - name: make sure curl is installed
-  yum: name=curl state=present
+  dnf: name=curl state=present
 
 - name: Install Draios GPG key
   shell: rpm --import https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public
@@ -15,7 +15,7 @@
   register: kernel_version
 
 - name: Install kernel-devel package
-  yum: name=kernel-devel-{{ kernel_version.stdout }}
+  dnf: name=kernel-devel-{{ kernel_version.stdout }}
 
 - name: Install Sysdig package
-  yum: name=sysdig state=present
+  dnf: name=sysdig state=present

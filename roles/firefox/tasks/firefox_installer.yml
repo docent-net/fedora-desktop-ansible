@@ -2,7 +2,7 @@
 # This playbook installs Firefox
 
 - name: Install Firefox package
-  yum: name=firefox state=latest
+  dnf: name=firefox state=latest
 
 - name: Download Adobe Release
   get_url:
@@ -10,7 +10,7 @@
     dest={{ temp_dir }}/adobe-release.rpm
 
 - name: Install Adobe Release
-  yum: name={{ temp_dir }}/adobe-release.rpm state=present
+  dnf: name={{ temp_dir }}/adobe-release.rpm state=present
 
 - name: Download Flash Player
   get_url:
@@ -18,4 +18,4 @@
     dest={{ temp_dir }}/flashplayer.rpm
 
 - name: Install Flash Player
-  yum: name={{ temp_dir }}/flashplayer.rpm state=present
+  dnf: name={{ temp_dir }}/flashplayer.rpm state=present
