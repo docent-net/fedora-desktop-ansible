@@ -37,4 +37,5 @@
     - lm_sensors
     - pidgin
     - gnome-disk-utility
+    - gimp
   tags: pkgs
