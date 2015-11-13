@@ -1,0 +1,29 @@
+---
+# This playbook installs translator-cli
+
+- name: Create directories
+  file:
+    path=/home/{{ user }}/{{ item }}
+    state=directory
+    owner={{ user }}
+    group={{ group }}
+    mode=0700
+  with_items:
+    - tmp
+    - bin
+
+- name: Clone repo
+  git:
+    repo=https://github.com/docent-net/translator-cli.git
+    dest=/home/{{ user }}/tmp/translator-cli
+    force=yes
+
+- name: Copy the translator script
+  command: mv /home/{{ user }}/tmp/translator-cli/trans.py /home/{{ user }}/bin/trans.py
+
+- name: Make script executable
+  file:
+    path=/home/{{ user }}/bin/trans.py
+    mode=0700
+    owner={{ user }}
+    group={{ group }}

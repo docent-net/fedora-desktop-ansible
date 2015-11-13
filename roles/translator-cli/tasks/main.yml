@@ -1,0 +1,3 @@
+---
+- include: translator-cli_installer.yml
+  tags: translator-cli
