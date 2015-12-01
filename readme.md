@@ -1,4 +1,4 @@
-This is my official provisioner for the Fedora 22 XFCE
+This is my official provisioner for the Fedora 23 XFCE
 desktop. Feel free to use it, modify, contribute etc.
 Always interested in your comments - write me!
 
