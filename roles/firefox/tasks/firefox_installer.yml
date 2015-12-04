@@ -19,3 +19,20 @@
 
 - name: Install Flash Player
   dnf: name={{ temp_dir }}/flashplayer.rpm state=present
+
+- name: Fix for Gnome3 dark style broken styling - step 1
+# http://forums.fedoraforum.org/showpost.php?p=1703251&postcount=3
+  file: >
+    path={{ home_dir }}/.mozilla/firefox/*.default/chrome
+    state=directory
+    owner={{ user }}
+    group={{ group }}
+    mode=0700
+
+- name: Fix for Gnome3 dark style broken styling - step 2
+  copy: >
+    src=userContent.css
+    dest={{ home_dir }}/.mozilla/firefox/*.default/chrome/userContent.css
+    owner={{ user }}
+    group={{ group }}
+    mode=0600
