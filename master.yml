@@ -5,20 +5,20 @@
 
   roles:
     - prepare_env
+    - prepare-dotcfgs
+    - ssh-config
     - packages
     - git
     - oh-my-zsh
     - tmuxinator
     - guake
     - dropbox
-    - skype
     - libreoffice
     - vlc
     - firefox
     - virtualbox
     - google-chrome
     - docker
-    - steam
     - hstr
     - wireshark
     - sysdig
