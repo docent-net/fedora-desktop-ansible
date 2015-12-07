@@ -1,6 +1,9 @@
-This is my official provisioner for the Fedora 22 XFCE
+This is my official provisioner for the Fedora 23 XFCE/Gnome3
 desktop. Feel free to use it, modify, contribute etc.
 Always interested in your comments - write me!
+
+As for now there are 2 branches here (master for XFCE and gnome3 for Gnome3).
+This will be changed in the future.
 
 Usage:
 
