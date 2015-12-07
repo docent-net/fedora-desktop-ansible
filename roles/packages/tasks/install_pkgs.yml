@@ -32,10 +32,8 @@
     - nmap
     - calibre
     - ffmpeg
-    - avidemux
     - htop
     - lm_sensors
-    - pidgin
     - gnome-disk-utility
     - gimp
   tags: pkgs
