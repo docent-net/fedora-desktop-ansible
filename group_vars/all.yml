@@ -7,4 +7,8 @@ group: docent                # your user's primary group
 home_dir: /home/docent       # your user's homedir
 git:
     username: Maciej Lasyk   # your git Name
-    email: maciek@lasyk.info # your git e-mail address
+    email: maciej.lasyk@ocado.com # your git e-mail address
+
+sys:
+  vm:
+    swappiness: 10

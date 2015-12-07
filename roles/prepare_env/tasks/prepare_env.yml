@@ -5,3 +5,9 @@
   file:
     path={{ temp_dir }}
     state=directory
+
+- name: Set vm.swappiness
+  sysctl: >
+    name=vm.swappiness
+    value={{ sys.vm.swappiness }}
+    state=present
