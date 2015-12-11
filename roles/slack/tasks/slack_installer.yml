@@ -9,3 +9,11 @@
     name=plaidchat
     global=yes
     state=latest
+
+- name: Add entry to Gnome3 applications
+  template:
+    src=slack.desktop
+    dest={{ home_dir }}/.local/share/applications/slack.desktop
+    mode=0600
+    owner=docent
+    group=docent
