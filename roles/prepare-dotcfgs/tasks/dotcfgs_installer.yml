@@ -19,3 +19,4 @@
     - { src: ".zshrc", dest: ".zshrc" }
     - { src: ".tmuxinator", dest: ".tmuxinator" }
     - { src: "ssh/config", dest: ".ssh/config" }
+    - { src: ".aws", dest: ".aws" }
