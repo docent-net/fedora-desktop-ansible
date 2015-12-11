@@ -13,33 +13,15 @@
 
 - name: Add favorite plugins
   git: >
-    dest={{ home_dir }}/.vim_runtime/sources_non_forked/gundo 
+    dest={{ home_dir }}/.vim_runtime/{{ item.dest }}
     force=yes 
-    repo=http://github.com/sjl/gundo.vim.git 
-
-- name: Add favorite plugins
-  git: >
-    repo=https://github.com/kakkyz81/evervim.git 
-    dest={{ home_dir }}/.vim_runtime/sources_non_forked/evervim
-    force=yes
-
-- name: Add favorite plugins
-  git: >
-    repo=https://github.com/fholgado/minibufexpl.vim.git 
-    dest={{ home_dir }}/.vim_runtime/sources_non_forked/minibuxeplorer
-    force=yes
-
-- name: Add favorite plugins
-  git: >
-    repo=https://github.com/powerline/powerline.git 
-    dest={{ home_dir }}/.vim_runtime/sources_non_forked/powerline
-    force=yes
-
-- name: Add favorite plugins
-  git: >
-    repo=https://github.com/mattn/gist-vim.git 
-    dest={{ home_dir }}/.vim_runtime/sources_non_forked/gist
-    force=yes
+    repo={{ item.repo }}
+  with_items:
+    - { repo: "http://github.com/sjl/gundo.vim.git", dest: "sources_non_forked/gundo" }
+    - { repo: "https://github.com/kakkyz81/evervim.git ", dest: "sources_non_forked/evervim" }
+    - { repo: "https://github.com/fholgado/minibufexpl.vim.git ", dest: "sources_non_forked/minibuxeplorer" }
+    - { repo: "https://github.com/powerline/powerline.git", dest: "sources_non_forked/powerline" }
+    - { repo: "https://github.com/mattn/gist-vim.git ", dest: "sources_non_forked/gist" }
 
 - name: Run Ultimate vimrc installer
   shell: sh {{ home_dir }}/.vim_runtime/install_awesome_vimrc.sh
