@@ -20,4 +20,5 @@
     - { src: ".tmuxinator", dest: ".tmuxinator" }
     - { src: "ssh/config", dest: ".ssh/config" }
     - { src: ".aws", dest: ".aws" }
+    - { src: ".boto", dest: ".boto" }
     - { src: "my_configs.vim", dest: ".vim_runtime/my_configs.vim" }
