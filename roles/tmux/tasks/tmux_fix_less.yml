@@ -1,0 +1,37 @@
+---
+# Fixing colors for "less"
+# see http://stackoverflow.com/questions/10535432/tmux-man-page-search-highlighting for details
+
+# Basic procedure:
+# $ mkdir $HOME/.terminfo/
+# $ screen_terminfo="screen-256color"
+# $ infocmp "$screen_terminfo" | sed \
+#  -e 's/^screen[^|]*|[^,]*,/screen-256color|screen with italics support,/' \
+#  -e 's/%?%p1%t;3%/%?%p1%t;7%/' \
+#  -e 's/smso=[^,]*,/smso=\\E[7m,/' \
+#  -e 's/rmso=[^,]*,/rmso=\\E[27m,/' \
+#  -e '$s/$/ sitm=\\E[3m, ritm=\\E[23m,/' > /tmp/screen.terminfo
+# $ tic /tmp/screen.terminfo
+# cp ~/.terminfo
+
+- name: Fix highligtning
+  file: >
+    path={{ home_dir }}/.terminfo
+    state=directory
+    owner={{ user }}
+    group={{ group }}
+    mode=0700
+
+- name: Fix highligtning
+  copy: >
+    src=infocmp.sh
+    dest=/tmp/infocmp.sh
+    mode=0700
+    owner={{ user }}
+    group={{ group }}
+
+- name: Fix highligtning
+  shell: /tmp/infocmp.sh
+
+- name: Fix highligtning
+  command: rsync -rP {{ home_dir }}/.terminfo /root/.

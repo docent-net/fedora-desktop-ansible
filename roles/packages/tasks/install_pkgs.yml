@@ -4,7 +4,6 @@
     - terminator
     - cmake
     - vim
-    - tmux
     - keepassx
     - wget
     - git

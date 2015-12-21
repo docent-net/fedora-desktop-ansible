@@ -10,6 +10,7 @@
     - packages
     - git
     - oh-my-zsh
+    - tmux
     - tmuxinator
     - guake
     - dropbox
