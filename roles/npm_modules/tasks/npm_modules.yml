@@ -1,0 +1,7 @@
+- name: Install npm modules
+  npm: >
+    name={{ item }}
+    global=yes
+    state=latest
+  with_items:
+  - how2

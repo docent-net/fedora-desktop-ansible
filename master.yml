@@ -30,3 +30,5 @@
     - libvirt
     - ntp
     - translator-cli
+    - npm
+    - npm_modules
