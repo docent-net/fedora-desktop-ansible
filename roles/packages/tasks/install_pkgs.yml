@@ -35,4 +35,5 @@
     - lm_sensors
     - gnome-disk-utility
     - gimp
+    - lastpass-cli
   tags: pkgs
