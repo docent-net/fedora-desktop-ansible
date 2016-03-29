@@ -1,7 +1,7 @@
 ---
 - name: Fedex provisioner
   hosts: localhost
-  sudo: yes
+  become: yes
 
   roles:
     - prepare_env
