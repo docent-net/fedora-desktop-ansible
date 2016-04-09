@@ -36,4 +36,5 @@
     - gnome-disk-utility
     - gimp
     - lastpass-cli
+    - sysstat
   tags: pkgs
