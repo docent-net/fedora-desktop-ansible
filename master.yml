@@ -1,5 +1,6 @@
 ---
 - name: Fedex provisioner
+  gather_facts: false
   hosts: localhost
   become: yes
 
@@ -33,3 +34,4 @@
     - npm
     - npm_modules
     - evernote
+    - gitkraken
