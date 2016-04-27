@@ -37,4 +37,6 @@
     - gimp
     - lastpass-cli
     - sysstat
+    - fuse-exfat
+    - exfat-utils
   tags: pkgs
