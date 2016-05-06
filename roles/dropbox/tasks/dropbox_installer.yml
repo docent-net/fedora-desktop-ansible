@@ -14,7 +14,3 @@
 
 - name: Install Dropbox package
   dnf: name=nautilus-dropbox state=latest
-  register: output
-
-- debug: msg="Dropbox installed; now configure manually"
-  when: output.rc == 1
