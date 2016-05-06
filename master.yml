@@ -6,6 +6,7 @@
 
   roles:
     - prepare_env
+    - vim
     - prepare-dotcfgs
     - ssh-config
     - packages
@@ -24,8 +25,8 @@
     - hstr
     - wireshark
     - sysdig
-    - vim
     - slack
+    - steam
     - fonts
     - redshift
     - libvirt
