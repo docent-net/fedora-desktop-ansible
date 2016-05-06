@@ -17,13 +17,6 @@
     owner={{ user }}
     group={{ group }}
 
-- name: Set owner and perms
-  file:
-    path={{ home_dir }}/.zshrc
-    mode=0600
-    owner={{ user }}
-    group={{ group }}
-
 - name: Make sure zsh is installed
   dnf: name=zsh state=latest
 
