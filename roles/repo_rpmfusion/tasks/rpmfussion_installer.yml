@@ -6,7 +6,7 @@
   register: version
 
 - name: Download RPMFusion package 1
-  get_url:
+  get_url: >
     url=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version.stdout }}.noarch.rpm
     dest=/tmp/rpmfusion.rpm
 
@@ -14,7 +14,7 @@
   dnf: name=/tmp/rpmfusion.rpm state=present
 
 - name: Download RPMFusion package 2
-  get_url:
+  get_url: >
     url=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version.stdout }}.noarch.rpm
     dest=/tmp/rpmfusion2.rpm
 
