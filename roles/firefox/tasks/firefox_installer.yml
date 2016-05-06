@@ -14,7 +14,7 @@
 
 - name: Download Flash Player
   get_url:
-    url=https://fpdownload.macromedia.com/get/flashplayer/pdc/11.2.202.540/flash-plugin-11.2.202.540-release.x86_64.rpm
+    url=https://fpdownload.macromedia.com/get/flashplayer/pdc/11.2.202.616/flash-plugin-11.2.202.616-release.x86_64.rpm
     dest={{ temp_dir }}/flashplayer.rpm
 
 - name: Install Flash Player
