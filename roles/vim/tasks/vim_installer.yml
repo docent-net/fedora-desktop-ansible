@@ -18,10 +18,10 @@
     repo={{ item.repo }}
   with_items:
     - { repo: "http://github.com/sjl/gundo.vim.git", dest: "sources_non_forked/gundo" }
-    - { repo: "https://github.com/kakkyz81/evervim.git ", dest: "sources_non_forked/evervim" }
-    - { repo: "https://github.com/fholgado/minibufexpl.vim.git ", dest: "sources_non_forked/minibuxeplorer" }
-    - { repo: "https://github.com/powerline/powerline.git", dest: "sources_non_forked/powerline" }
-    - { repo: "https://github.com/mattn/gist-vim.git ", dest: "sources_non_forked/gist" }
+#    - { repo: "http://github.com/kakkyz81/evervim.git ", dest: "sources_non_forked/evervim" }
+#    - { repo: "http://github.com/fholgado/minibufexpl.vim.git ", dest: "sources_non_forked/minibuxeplorer" }
+    - { repo: "http://github.com/powerline/powerline.git", dest: "sources_non_forked/powerline" }
+#    - { repo: "http://github.com/mattn/gist-vim.git ", dest: "sources_non_forked/gist" }
 
 - name: Run Ultimate vimrc installer
   shell: sh {{ home_dir }}/.vim_runtime/install_awesome_vimrc.sh

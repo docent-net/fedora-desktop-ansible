@@ -3,11 +3,11 @@
   npm: >
     name=plaidchat
     global=yes
-    state=latest
+    state=present
 
 - name: Add entry to Gnome3 applications
   template:
-    src=slack.desktop
+    src=templates/slack.desktop
     dest={{ home_dir }}/.local/share/applications/slack.desktop
     mode=0600
     owner=docent
