@@ -2,7 +2,4 @@
 # This playbook installs Tmuxinator
 
 - name: Instal prerequisites
-  dnf: name=ruby state=latest
-
-- name: Install Tmuxinator
-  shell: gem install tmuxinator
+  dnf: name=tmuxinator state=present
