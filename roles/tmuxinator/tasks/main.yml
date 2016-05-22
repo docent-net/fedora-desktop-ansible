@@ -1,4 +1,0 @@
----
-# this playbook includes Tmuxinator installer and configurator
-- include: tmuxinator_installer.yml
-  tags: tmuxinator

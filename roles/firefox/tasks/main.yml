@@ -1,4 +1,0 @@
----
-# this playbook includes Firefox installer and configurator
-- include: firefox_installer.yml
-  tags: firefox

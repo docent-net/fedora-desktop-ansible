@@ -1,4 +1,0 @@
----
-# this playbook includes Steam installer
-- include: steam_installer.yml
-  tags: steam

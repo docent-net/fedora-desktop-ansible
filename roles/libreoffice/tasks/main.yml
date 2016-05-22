@@ -1,4 +1,0 @@
----
-# this playbook includes LibreOffice installer and configurator
-- include: libreoffice_installer.yml
-  tags: libreoffice

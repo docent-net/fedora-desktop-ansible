@@ -1,4 +1,0 @@
----
-# this playbook includes RPMFussion repo installer
-- include: rpmfussion_installer.yml
-  tags: repo_rpmfussion

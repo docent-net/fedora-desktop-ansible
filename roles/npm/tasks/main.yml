@@ -1,4 +1,0 @@
----
-# this playbook includes npm installer
-- include: npm_installer.yml
-  tags: npm

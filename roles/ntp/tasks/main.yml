@@ -1,4 +1,0 @@
----
-# this playbook includes ntp installer
-- include: ntp_installer.yml
-  tags: ntp

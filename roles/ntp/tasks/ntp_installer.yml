@@ -1,8 +1,0 @@
----
-# This playbook installs and enable ntp client
-
-- name: Install ntp package
-  dnf: name=ntp state=present
-
-- name: Enable ntpd service
-  service: name=ntpd state=started enabled=yes

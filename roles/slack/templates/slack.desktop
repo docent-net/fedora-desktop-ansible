@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Slack
-Icon={{ home_dir }}/.plaidchat-tray.png
-Exec="/usr/bin/plaidchat"
-Comment=Slack
-Terminal=false

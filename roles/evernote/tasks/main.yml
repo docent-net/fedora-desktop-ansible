@@ -1,6 +1,0 @@
----
-# this playbook includes evernote installer
-- include: evernote_installer.yml
-  tags:
-  - evernote
-  - nixnote

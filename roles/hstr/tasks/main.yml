@@ -1,4 +1,0 @@
----
-# this playbook includes HSTR installer and configurator
-- include: hstr_installer.yml
-  tags: hstr

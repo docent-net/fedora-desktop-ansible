@@ -1,4 +1,0 @@
----
-# This playbook installs npm
-- name: Install npm
-  dnf: name=npm state=present

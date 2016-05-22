@@ -1,4 +1,0 @@
----
-# this playbook includes git configurator
-- include: configure_git.yml
-  tags: git

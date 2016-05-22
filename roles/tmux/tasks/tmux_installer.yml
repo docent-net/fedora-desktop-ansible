@@ -1,9 +1,0 @@
----
-# This playbook installs Tmux
-
-- name: Install prerequisites
-  dnf: name=tmux state=latest
-
-  # Fix background color highlightning:
-  # see http://stackoverflow.com/questions/10535432/tmux-man-page-search-highlighting for details
-- include: tmux_fix_less.yml

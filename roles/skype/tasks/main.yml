@@ -1,4 +1,0 @@
----
-# this playbook includes Skype installer and configurator
-- include: skype_installer.yml
-  tags: skype

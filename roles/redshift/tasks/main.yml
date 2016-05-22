@@ -1,5 +1,0 @@
----
-# this playbook includes Redshift-GTK playbook
-# check http://jonls.dk/redshift/ for details
-- include: redshift_installer.yml
-  tags: redshift

@@ -1,4 +1,0 @@
----
-# this playbook includes libvirt installer and configurator
-- include: libvirt_installer.yml
-  tags: libvirt

@@ -1,4 +1,0 @@
----
-# this playbook includes Docker installer and configurator
-- include: docker_installer.yml
-  tags: docker

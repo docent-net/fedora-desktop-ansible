@@ -1,4 +1,0 @@
----
-# this playbook includes Sysdig
-- include: sysdig_installer.yml
-  tags: sysdig

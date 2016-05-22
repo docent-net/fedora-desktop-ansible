@@ -1,4 +1,0 @@
----
-# this playbook includes VLC installer and configurator
-- include: vlc_installer.yml
-  tags: vlc

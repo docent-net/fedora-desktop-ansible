@@ -1,5 +1,0 @@
----
-# Dropbox default configuration
-
-dropbox:
-  repokey: http://linux.dropbox.com/fedora/rpm-public-key.asc

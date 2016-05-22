@@ -1,6 +1,0 @@
----
-# this playbook includes gitkraken installer
-- include: gitkraken_installer.yml
-  tags:
-  - gitkraken
-  - installation

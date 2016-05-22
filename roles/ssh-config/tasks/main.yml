@@ -1,4 +1,0 @@
----
-# this playbook configures all ssh stuff
-- include: ssh-config.yml
-  tags: ssh-config
