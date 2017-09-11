@@ -1,6 +1,6 @@
 # fedora-desktop-ansible #
 
-This is my provisioner for the Fedora 25 Gnome3 / Wayland
+This is my provisioner for the Fedora 26 Gnome3 / Wayland
 generic desktop. Feel free to use it, modify, contribute etc.
 Always interested in your comments - write me!
 
