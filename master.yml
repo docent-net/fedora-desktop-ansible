@@ -42,3 +42,5 @@
     - aws
     - keybase
     - hashicorp_packer
+    - hashicorp_terraform
+    - gitter
