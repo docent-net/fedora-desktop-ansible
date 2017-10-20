@@ -44,4 +44,4 @@
     - hashicorp_packer
     - hashicorp_terraform
     - gitter
-    - exercism
+    - exercism.io
