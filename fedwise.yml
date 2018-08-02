@@ -1,0 +1,41 @@
+---
+- name: Fedwise provisioner
+  gather_facts: false
+  hosts: localhost
+  become: yes
+
+  roles:
+    - prepare_env
+    - vim
+    - prepare-dotcfgs
+    - ssh-config
+    - packages
+    - git
+    - oh-my-zsh
+    - tmux
+    - tmuxinator
+    - guake
+    - libreoffice
+    - vlc
+    - firefox
+    - virtualbox
+    - google-chrome
+    - docker
+    - hstr
+    - wireshark
+    - sysdig
+    - slack
+    - fonts
+    - redshift
+    - libvirt
+    - ntp
+    - translator-cli
+    - npm
+    - npm_modules
+    - evernote
+    - intellij
+    - aws
+    - keybase
+    - hashicorp_packer
+    - hashicorp_terraform
+    - 1password_op
