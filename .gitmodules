@@ -1,3 +1,0 @@
-[submodule "roles"]
-	path = roles
-	url = git@github.com:docent-net/fedora-desktop-ansible-roles.git
