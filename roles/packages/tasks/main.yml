@@ -1,0 +1,7 @@
+---
+# this playbook includes packages installers
+- include: update_pkgs.yml
+  tags: pkgs,update
+
+- include: install_pkgs.yml
+  tags: pkgs,install

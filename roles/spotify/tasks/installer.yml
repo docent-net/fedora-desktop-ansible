@@ -1,0 +1,6 @@
+---
+- name: Install Slack from Flathub
+  flatpak:
+    name: com.spotify.Client
+    state: present
+    method: user

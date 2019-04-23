@@ -1,0 +1,17 @@
+---
+# Preparing environment
+
+- name: create required directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+  - "{{ temp_dir }}"
+  - "{{ local_soft_dir }}"
+  - "{{ local_bin_dir }}"
+
+- name: Set vm.swappiness
+  sysctl:
+    name: vm.swappiness
+    value: "{{ sys.vm.swappiness }}"
+    state: present

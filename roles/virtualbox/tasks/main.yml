@@ -1,0 +1,4 @@
+---
+# this playbook includes Virtualbox installer and configurator
+- include: virtualbox_installer.yml
+  tags: virtualbox

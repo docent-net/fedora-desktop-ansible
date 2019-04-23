@@ -1,0 +1,43 @@
+---
+# This playbook installs IntelliJ
+# unfortunately there're no fedora / rhel packages so
+# we download zip and unarchive it
+# in order to update your current installation you have to remove it manually
+# or invoke playbook with "-e update_apps=true" or simply update from within
+# intellij
+# After update you'll probably have to run application manually from
+# ./bin/idea.sh and re - generate desktopr entry / cmd - launcher (Tools
+# -> Create Desktop Entry) and re - import settings from ~/.IdeaICXXX 
+# directory
+
+- name: Check if there is any old installation
+  stat: path="{{ local_soft_dir }}/idea"
+  register: idea_state
+
+- block:
+  - name: Download package
+    get_url: >
+      dest={{ temp_dir }}/idea.tar.gz
+      url="https://download.jetbrains.com/idea/ideaIU-2018.1.3.tar.gz"
+
+  - name: Ensure Idea directory is removed
+    file: >
+      path={{ local_soft_dir }}/Idea
+      state=absent
+
+  - name: Extract archive
+    unarchive: >
+      src={{ temp_dir }}/idea.tar.gz
+      dest={{ local_soft_dir }}/
+      group={{ group }}
+      owner={{ user }}
+  when: idea_state.stat.exists == false or update_apps | default('') != ''
+
+# details aboout this operation: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
+- name: Increase inotify limit
+  sysctl:
+      sysctl_file: /etc/sysctl.d/idea.conf
+      name: fs.inotify.max_user_watches
+      value: 524288
+      reload: yes
+      state: present

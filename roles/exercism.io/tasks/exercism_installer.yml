@@ -1,0 +1,30 @@
+---
+# This playbook installs Exercism CLI client
+# (see http://exercism.io/clients/cli/linux)
+# we download tgz and unarchive it
+# in order to update your current installation you have to remove it manually
+# or invoke playbook with "-e update_apps=true"
+
+- name: Check if there is any old installation
+  stat: path="{{ local_bin_dir }}/exercism"
+  register: exercism_state
+
+- block:
+  - name: Download package
+    get_url:
+      dest: "{{ temp_dir }}/exercism.tgz"
+      url: "https://github.com/exercism/cli/releases/download/v2.4.1/exercism-linux-64bit.tgz"
+
+  - name: Ensure Exercism binary is removed
+    file: >
+      path={{ local_bin_dir }}/exercism
+      state=absent
+
+  - name: Extract archive
+    unarchive: >
+      src={{ temp_dir }}/exercism.tgz
+      dest={{ local_bin_dir }}/
+      group={{ group }}
+      owner={{ user }}
+
+  when: exercism_state.stat.exists == false or update_apps | default('') != ''

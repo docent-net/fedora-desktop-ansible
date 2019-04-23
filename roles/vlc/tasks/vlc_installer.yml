@@ -1,0 +1,5 @@
+---
+# This playbook installs VLC player
+
+- name: Install VLC package
+  dnf: name=vlc state=latest

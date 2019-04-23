@@ -1,0 +1,47 @@
+---
+# This playbook installs Hashicorp Packer
+# unfortunately there're no fedora / rhel packages so
+# we download zip and unarchive it
+# in order to update your current installation you have to remove it manually
+# or invoke playbook with "-e update_apps=true"
+# This playbook renames packer to "hpacker", as "packer" conflicts with another
+# system binary (from cracklib) on Fedora
+
+- name: Check if there is any old installation
+  stat: path="{{ local_bin_dir }}/hpacker"
+  register: packer_state
+
+- block:
+  - name: Download package
+    get_url:
+      # due to SSL bug: https://github.com/ansible/ansible/issues/25402                                                                                                                                           
+      validate_certs: no 
+      dest: "{{ temp_dir }}/packer.zip"
+      url: "https://releases.hashicorp.com/packer/1.0.4/packer_1.0.4_linux_amd64.zip"
+
+  - name: Ensure Packer binary is removed
+    file: >
+      path={{ local_bin_dir }}/hpacker
+      state=absent
+
+  - name: Extract archive
+    unarchive: >
+      src={{ temp_dir }}/packer.zip
+      dest={{ local_bin_dir }}/
+      group={{ group }}
+      owner={{ user }}
+
+  # Ansible cant simply move file other way than command/shell module, so..:
+  - name: Copy packer to hpacker
+    copy: 
+      remote_src=True 
+      src={{ local_bin_dir }}/packer 
+      dest={{ local_bin_dir}}/hpacker
+      group={{ group }}
+      owner={{ user }}
+      mode=0700
+
+  - name: Remove old file
+    file: path={{ local_bin_dir }}/packer state=absent
+
+  when: packer_state.stat.exists == false or update_apps | default('') != ''

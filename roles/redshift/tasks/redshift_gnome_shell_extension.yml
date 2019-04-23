@@ -1,0 +1,8 @@
+---
+- name: Enable COPR repo                                                        
+  shell: dnf copr enable mystro256/gnome-redshift -y
+
+- name: Install pkgs
+  dnf:
+    name: gnome-shell-extension-redshift
+    state: installed

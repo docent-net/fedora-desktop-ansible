@@ -1,0 +1,4 @@
+---
+# this playbook includes hipchat installer
+- include: hipchat_installer.yml
+  tags: hipchat

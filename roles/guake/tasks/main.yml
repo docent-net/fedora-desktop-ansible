@@ -1,0 +1,4 @@
+---
+# this playbook includes Guake installer and configurator
+- include: guake_installer.yml
+  tags: guake

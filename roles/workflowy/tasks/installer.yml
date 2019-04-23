@@ -1,0 +1,29 @@
+---
+# This playbook installs Workflowy
+# unfortunately there're no fedora / rhel packages but there .AppImages
+# in order to update your current installation you have to remove it manually
+# or invoke playbook with "-e update_apps=true"
+
+- name: Check if there is any old installation
+  stat: path="{{ local_bin_dir }}/workflowy"
+  register: installation_state
+
+- block:
+  - name: Ensure old binary is removed
+    file:
+      path: "{{ local_bin_dir }}/workflowy"
+      state: absent
+
+  - name: Download imagepackage
+    get_url:
+      dest: "{{ local_bin_dir}}/workflowy"
+      url: "https://github.com/workflowy/desktop/releases/download/v0.0.1/WorkFlowy-0.0.1-x86_64.AppImage"
+
+  - name: Make image executable
+    file:
+      path: "{{ local_bin_dir}}/workflowy"
+      mode: 0700
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  when: installation_state.stat.exists == false or update_apps | default('') != ''

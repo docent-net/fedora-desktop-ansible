@@ -1,0 +1,35 @@
+---
+# This playbook installs VIM and its plugins
+
+- name: Install vim package
+  dnf: name=vim state=latest
+
+- name: Clone Ultimate vimrc repo
+  git: >
+    repo=https://github.com/amix/vimrc.git
+    accept_hostkey=yes
+    force=yes
+    dest={{ home_dir }}/.vim_runtime
+
+- name: Add favorite plugins
+  git: >
+    dest={{ home_dir }}/.vim_runtime/{{ item.dest }}
+    force=yes 
+    repo={{ item.repo }}
+  with_items:
+    - { repo: "http://github.com/sjl/gundo.vim.git", dest: "sources_non_forked/gundo" }
+#    - { repo: "http://github.com/kakkyz81/evervim.git ", dest: "sources_non_forked/evervim" }
+#    - { repo: "http://github.com/fholgado/minibufexpl.vim.git ", dest: "sources_non_forked/minibuxeplorer" }
+    - { repo: "http://github.com/powerline/powerline.git", dest: "sources_non_forked/powerline" }
+#    - { repo: "http://github.com/mattn/gist-vim.git ", dest: "sources_non_forked/gist" }
+
+- name: Run Ultimate vimrc installer
+  become: no
+  shell: sh {{ home_dir }}/.vim_runtime/install_awesome_vimrc.sh
+
+- name: Fix permissions
+  file: >
+    path={{ home_dir }}/.vim_runtime
+    owner={{ user }}
+    group={{ group }}
+    recurse=yes

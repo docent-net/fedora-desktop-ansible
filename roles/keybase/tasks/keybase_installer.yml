@@ -1,0 +1,5 @@
+---
+# This playbook installs keybase
+
+- name: Install keybase package
+  dnf: name=https://prerelease.keybase.io/keybase_amd64.rpm state=present

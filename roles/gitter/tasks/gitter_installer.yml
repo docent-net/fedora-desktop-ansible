@@ -1,0 +1,44 @@
+---
+- name: Check if there is any old installation
+  stat: path="{{ local_soft_dir }}/gitter"
+  register: gitter_state
+
+- block:
+  - name: Install prerequisities
+    dnf:
+      name: dpkg
+      state: present
+
+  - name: Create symlink for libudev version
+    file:
+      src: /usr/lib64/libudev.so.1
+      dest: /usr/lib64/libudev.so.0
+      state: link
+
+  - name: Download Gitter deb
+    get_url:
+      url: "https://update.gitter.im/linux64/gitter_3.1.0_amd64.deb"
+      dest: "{{ temp_dir }}/gitter.deb"
+
+  - name: Unpack deb package
+    command: dpkg-deb -x {{ temp_dir }}/gitter.deb {{ temp_dir }}/gitter/
+
+  - name: Move Gitter directory
+    command: mv {{ temp_dir }}/gitter/opt/Gitter {{ local_soft_dir }}/gitter
+
+  - name: Fix permissions
+    file:
+      path: "{{ local_soft_dir }}/gitter"
+      owner: "{{ user }}"
+      group: "{{ group }}"
+      state: directory
+
+  - name: Add entry to Gnome3 applications
+    template:
+      src: "templates/gitter.desktop"
+      dest: "{{ home_dir }}/.local/share/applications/gitter.desktop"
+      mode: "0600"
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  when: gitter_state.stat.exists == false or update_apps | default('') != ''

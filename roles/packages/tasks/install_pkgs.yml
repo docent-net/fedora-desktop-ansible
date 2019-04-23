@@ -1,0 +1,46 @@
+- name: Install main packages
+  dnf: name={{ item }} state=latest
+  with_items:
+    - terminator
+    - cmake
+    - vim
+    - keepassx
+    - wget
+    - git
+    - gitk
+    - gedit
+    - strace
+    - ruby
+    - ipython
+    - python-virtualenv
+    - python-virtualenvwrapper
+    - pinpoint
+    - ike
+    - mc
+    - gobby
+    - virt-manager
+    - multitail
+    - meld
+    - unetbootin
+    - ntfs-3g
+    - liveusb-creator
+    - cryptsetup
+    - pv
+    - tigervnc
+    - unrar
+    - nmap
+    - calibre
+    - ffmpeg
+    - htop
+    - lm_sensors
+    - gnome-disk-utility
+    - gimp
+    - lastpass-cli
+    - sysstat
+    - fuse-exfat
+    - exfat-utils
+    - pandoc
+    - python-certbot-apache
+    - rust
+    - cargo
+  tags: pkgs

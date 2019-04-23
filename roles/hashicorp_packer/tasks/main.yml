@@ -1,0 +1,6 @@
+---
+- include: packer_installer.yml
+  tags:
+  - packer
+  - hashicorp
+  - installation

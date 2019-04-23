@@ -1,0 +1,34 @@
+---
+# This playbook installs HSTR
+
+- name: Create bin directory
+  file:
+    path={{ home_dir }}/bin
+    state=directory
+    owner={{ user }}
+    group={{ group }}
+    mode=0700
+
+- name: Download HSTR binary
+  get_url:
+    url=https://github.com/dvorka/hstr/releases/download/1.17/hh-1.17-bin-64b.tgz
+    dest={{ home_dir }}/bin/hh.tgz
+
+- name: Unpack binary
+  command: tar zxf {{ home_dir }}/bin/hh.tgz -C {{ home_dir }}/bin/
+
+- name: Remove tgz
+  file:
+    path={{ home_dir }}/bin/hh.tgz
+    state=absent
+
+- name: Extend zsh configuration
+  lineinfile:
+    dest={{ home_dir }}/.zshrc
+    line='export HISTFILE=~/.zsh_history; export HH_CONFIG=hicolor; bindkey -s "\C-r" "\eqhh\n"'
+    state=present
+
+- name: Install prerequisities
+  dnf:
+    name: compat-readline6
+    state: latest

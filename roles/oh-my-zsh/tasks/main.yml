@@ -1,0 +1,4 @@
+---
+# this playbook includes oh-my-zsh installer and configurator
+- include: oh-my-zsh_installer.yml
+  tags: oh-my-zsh

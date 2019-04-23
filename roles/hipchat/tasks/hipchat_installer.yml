@@ -1,0 +1,13 @@
+---
+- name: Create Hipchat repo
+  copy:
+    src=hipchat4.repo
+    dest=/etc/yum.repos.d/hipchat4.repo
+    owner=root
+    group=root
+    mode=0600
+
+- name: Install Hipchat chipchat
+  dnf: >
+    name=hipchat4
+    state=latest

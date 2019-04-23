@@ -1,0 +1,5 @@
+[atlassian-hipchat4]
+name=Atlassian Hipchat4
+baseurl=https://atlassian.artifactoryonline.com/atlassian/hipchat-yum-client/
+enabled=1
+gpgcheck=0

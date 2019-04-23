@@ -1,0 +1,4 @@
+---
+- include: npm_modules.yml
+  tags:
+  - npm_modules

@@ -1,0 +1,5 @@
+- name: Install Slack from Flathub
+  flatpak:
+    name: com.slack.Slack
+    state: present
+    method: user

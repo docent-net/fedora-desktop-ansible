@@ -1,0 +1,6 @@
+---
+# this playbook includes gitter installer
+# main problem with gitter on Fedora is lack of Gitter packages (only debs)
+# so let's simply unpack deb
+- include: gitter_installer.yml
+  tags: gitter

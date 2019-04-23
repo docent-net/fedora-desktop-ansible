@@ -1,0 +1,14 @@
+---
+# This playbook installs LibreOffice
+
+- name: Install packages
+  dnf: name={{ item }} state=latest
+  with_items:
+    - libreoffice
+    - libreoffice-langpack-pl
+    - libreoffice-calc
+    - libreoffice-impress
+    - libreoffice-writer
+    - libreoffice-draw
+
+# TODO: automate installation of vrt network equipment icons:  http://www.vrt.com.au/downloads/vrt-network-equipment

@@ -1,0 +1,10 @@
+---
+- name: Install prerequisites
+  dnf: name=meld state=latest
+- name: Configure git
+  template:
+    dest={{ home_dir }}/.gitconfig
+    src=gitconfig
+    owner={{ user }}
+    group={{ group }}
+    mode=0600

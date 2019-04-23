@@ -1,0 +1,14 @@
+- name: Create ssh temporary dir
+  file: >
+    path={{ home_dir }}/.ssh/tmp
+    state=directory
+    owner={{ user }}
+    group={{ group }}
+    mode=0700
+
+- name: Make sure ssh config has proper permissions
+  file: >
+    path={{ home_dir }}/git/dotcfgs/ssh/config
+    owner={{ user }}
+    group={{ group }}
+    mode=0600

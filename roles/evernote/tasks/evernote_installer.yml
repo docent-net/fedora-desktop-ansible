@@ -1,0 +1,21 @@
+---
+# This role will install ninote2 as well as Quentier
+# I started using the latter as nixnote2 stopped working on Fedora28
+# (see: https://github.com/baumgarr/nixnote2/issues/439)
+
+# dnf module cannot manage COPR repos :(
+- name: Enable COPR repo
+  shell: dnf copr enable nunodias/nixnote2 -y
+
+- name: Install pkg
+  dnf: >
+    name=nixnote2
+    state=latest
+
+- name: Enable Quentier repo
+  shell: dnf config-manager --add-repo https://download.opensuse.org/repositories/home:d1vanov:quentier-master/Fedora_28/home:d1vanov:quentier-master.repo
+
+- name: Install pkg
+  dnf:
+    name: quentier
+    state: latest

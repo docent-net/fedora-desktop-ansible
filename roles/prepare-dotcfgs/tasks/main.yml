@@ -1,0 +1,4 @@
+---
+# this playbook includes dotcfgs installer and configurator
+- include: dotcfgs_installer.yml
+  tags: dotcfgs

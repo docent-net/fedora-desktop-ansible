@@ -1,0 +1,5 @@
+---
+# this playbook includes Vim (including Ultimate vimrc) installer and 
+# configurator
+- include: vim_installer.yml
+  tags: vim

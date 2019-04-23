@@ -1,0 +1,31 @@
+---
+# This playbook installs pyenv on Fedora
+# https://github.com/pyenv/pyenv
+- block:
+  - name: Install prerequisities
+    dnf:
+      name: "{{ pkg_list }}"
+      state: present
+    become: yes
+    vars:
+      pkg_list: ["zlib-devel", "bzip2", "bzip2-devel", "readline-devel", "sqlite", "sqlite-devel", "openssl-devel",
+                    "xz", "xz-devel", "libffi-devel", "findutils"]
+
+  - name: Clone repo
+    git:
+      repo: https://github.com/pyenv/pyenv.git
+      dest: "{{ local_soft_dir }}/pyenv"
+      update: no
+
+  - name: "Update zshrc"
+    lineinfile:
+      path: "{{ home_dir}}/.zshrc"
+      line: "{{ item.line }}"
+      regexp: "{{ item.regexp }}"
+    loop:
+    - line: "export PYENV_ROOT=\"{{ local_soft_dir }}/pyenv\""
+      regexp: "^export PYENV_ROOT"
+    - line: 'export PATH="$PYENV_ROOT/bin:$PATH"'
+      regexp: '^export PATH\=\"\$PYENV'
+
+  become: no

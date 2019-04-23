@@ -1,0 +1,3 @@
+---
+- include: 1password_op_installer.yml
+  tags: 1password

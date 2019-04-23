@@ -1,0 +1,5 @@
+---
+# This playbook installs Steam
+
+- name: Install Steam package
+  dnf: name=steam state=present

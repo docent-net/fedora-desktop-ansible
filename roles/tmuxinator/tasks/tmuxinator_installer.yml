@@ -1,0 +1,5 @@
+---
+# This playbook installs Tmuxinator
+
+- name: Install prerequisites
+  dnf: name=tmuxinator state=latest

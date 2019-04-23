@@ -1,0 +1,5 @@
+---
+- include: installer.yml
+  tags:
+  - python
+  - pyenv

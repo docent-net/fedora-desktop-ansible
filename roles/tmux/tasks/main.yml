@@ -1,0 +1,4 @@
+---
+# this playbook includes tmux installer and configurator
+- include: tmux_installer.yml
+  tags: tmux

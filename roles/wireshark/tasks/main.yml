@@ -1,0 +1,4 @@
+---
+# this playbook includes Wireshark installer and configurator
+- include: wireshark_installer.yml
+  tags: wireshark

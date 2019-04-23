@@ -1,0 +1,5 @@
+---
+# this playbook includes slack installer
+# check https://github.com/plaidchat/plaidchat for details
+- include: slack_installer.yml
+  tags: slack

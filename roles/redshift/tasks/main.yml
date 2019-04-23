@@ -1,0 +1,11 @@
+---
+# this playbook includes Redshift-GTK playbook
+# check http://jonls.dk/redshift/ for details
+- include: redshift_installer.yml
+  tags: redshift
+
+# Unfortunately redshift doesn't work on Wayland, so following
+# https://fedoramagazine.org/safe-eyes-redshift/ we need to install
+# gnome-shell-extension:
+- include: redshift_gnome_shell_extension.yml
+  tags: redshift

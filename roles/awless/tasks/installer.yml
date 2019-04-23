@@ -1,0 +1,30 @@
+---
+# This playbook installs awless - a Go application for managing AWS resources
+# unfortunately there're no fedora / rhel packages so
+# we download zip, unzip it and put in the binary directory
+# in order to update your current installation you have to remove it manually
+# or invoke playbook with "-e update_apps=true"
+
+- name: Check if there is any old installation
+  stat: path="{{ local_bin_dir }}/awless"
+  register: installation_state
+
+- block:
+  - name: Download package
+    get_url:
+      dest: "{{ temp_dir }}/awless.tar.gz"
+      url: "https://github.com/wallix/awless/releases/download/v0.1.11/awless-linux-amd64.tar.gz"
+
+  - name: Ensure old binary is removed
+    file:
+      path: "{{ local_bin_dir }}/awless"
+      state: absent
+
+  - name: Extract archive
+    unarchive:
+      src: "{{ temp_dir }}/awless.tar.gz"
+      dest: "{{ local_bin_dir }}/"
+      group: "{{ group }}"
+      owner: "{{ user }}"
+
+  when: installation_state.stat.exists == false or update_apps | default('') != ''

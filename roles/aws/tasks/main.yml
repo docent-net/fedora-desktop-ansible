@@ -1,0 +1,3 @@
+---
+- include: installer.yml
+  tags: aws

@@ -1,0 +1,10 @@
+---
+# This playbook installs fonts packages on Fedora
+
+- name: Install fonts pkgs
+  dnf: >
+    name={{ item }}
+    state=latest
+  with_items:
+    - terminus-fonts
+    - terminus-fonts-console

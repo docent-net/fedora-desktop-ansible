@@ -1,0 +1,22 @@
+---
+# This playbook installs RPMFussion repository
+
+- name: Get Fedora version
+  shell: rpm -E %fedora
+  register: version
+
+- name: Download RPMFusion package 1
+  get_url: >
+    url=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version.stdout }}.noarch.rpm
+    dest=/tmp/rpmfusion.rpm
+
+- name: Install RPMFusion package 1
+  dnf: name=/tmp/rpmfusion.rpm state=present
+
+- name: Download RPMFusion package 2
+  get_url: >
+    url=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version.stdout }}.noarch.rpm
+    dest=/tmp/rpmfusion2.rpm
+
+- name: Install RPMFusion package 2
+  dnf: name=/tmp/rpmfusion2.rpm state=present
