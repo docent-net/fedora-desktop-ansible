@@ -17,6 +17,15 @@
       dest: "{{ local_soft_dir }}/pyenv"
       update: no
 
+  - name: Install plugins
+    git:
+      repo: "{{ item.url }}"
+      dest: "{{ local_soft_dir }}/pyenv/plugins/{{ item.name }}"
+      update: no
+    loop:
+    - url: "https://github.com/pyenv/pyenv-virtualenv.git"
+      name: "pyenv-virtualenv"
+
   - name: "Update zshrc"
     lineinfile:
       path: "{{ home_dir}}/.zshrc"
