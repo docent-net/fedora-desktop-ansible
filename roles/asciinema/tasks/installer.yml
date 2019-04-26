@@ -1,0 +1,8 @@
+---
+# This playbook installs asciinemar - a terminal session recorder
+# https://asciinema.org
+
+- name: Install asciinema
+  dnf:
+    name: asciinema
+    state: present
