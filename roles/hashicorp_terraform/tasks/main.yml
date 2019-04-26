@@ -4,3 +4,9 @@
   - terraform
   - hashicorp
   - installation
+
+- include: tfenv_installer.yml
+  tags:
+  - terraform
+  - tfenv
+  - installation

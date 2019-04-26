@@ -1,0 +1,27 @@
+---
+# This playbook installs tfuitls / tfenv Terraform
+# https://github.com/tfutils/tfenv
+# in order to update your current installation you have to remove it manually
+# or invoke playbook with "-e update_apps=true"
+
+- name: Check if there is any old installation
+  stat: path="{{ local_soft_dir }}/tfenv"
+  register: tfenv_state
+
+- block:
+  - name: Download tfenv
+    git:
+      dest: "{{ local_soft_dir }}/tfenv"
+      repo: https://github.com/tfutils/tfenv.git
+      update: yes
+
+  - name: Create symlinks
+    file:
+      dest: "{{ local_bin_dir }}/{{ item }}"
+      src: "{{ local_soft_dir }}/tfenv/bin/{{ item }}"
+      state: link
+    loop:
+    - terraform
+    - tfenv
+
+  when: tfenv_state.stat.exists == false or update_apps | default('') != ''

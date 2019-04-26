@@ -18,15 +18,15 @@
       url: "https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip"
 
   - name: Ensure Terraform binary is removed
-    file: >
-      path={{ local_bin_dir }}/terraform
-      state=absent
+    file:
+      path: "{{ local_bin_dir }}/terraform"
+      state: absent
 
   - name: Extract archive
-    unarchive: >
-      src={{ temp_dir }}/terraform.zip
-      dest={{ local_bin_dir }}/
-      group={{ group }}
-      owner={{ user }}
+    unarchive:
+      src: "{{ temp_dir }}/terraform.zip"
+      dest: "{{ local_bin_dir }}/"
+      group: "{{ group }}"
+      owner: "{{ user }}"
 
   when: terraform_state.stat.exists == false or update_apps | default('') != ''
