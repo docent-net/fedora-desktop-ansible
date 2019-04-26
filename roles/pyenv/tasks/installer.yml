@@ -1,16 +1,15 @@
 ---
 # This playbook installs pyenv on Fedora
 # https://github.com/pyenv/pyenv
-- block:
-  - name: Install prerequisities
-    dnf:
-      name: "{{ pkg_list }}"
-      state: present
-    become: yes
-    vars:
-      pkg_list: ["zlib-devel", "bzip2", "bzip2-devel", "readline-devel", "sqlite", "sqlite-devel", "openssl-devel",
-                    "xz", "xz-devel", "libffi-devel", "findutils"]
+- name: Install prerequisities
+  dnf:
+    name: "{{ pkg_list }}"
+    state: present
+  vars:
+    pkg_list: ["zlib-devel", "bzip2", "bzip2-devel", "readline-devel", "sqlite", "sqlite-devel", "openssl-devel",
+                  "xz", "xz-devel", "libffi-devel", "findutils"]
 
+- block:
   - name: Clone repo
     git:
       repo: https://github.com/pyenv/pyenv.git
