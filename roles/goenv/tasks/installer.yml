@@ -1,0 +1,29 @@
+---
+# This playbook installs goenv on Fedora
+# https://github.com/syndbg/goenv/
+
+- block:
+  - name: Clone repo
+    git:
+      repo: https://github.com/syndbg/goenv.git
+      dest: "{{ local_soft_dir }}/goenv"
+      update: no
+
+  - name: "Update zshrc"
+    lineinfile:
+      path: "{{ home_dir}}/.zshrc"
+      line: "{{ item.line }}"
+      regexp: "{{ item.regexp }}"
+    loop:
+    - line: "export GOENV_ROOT=\"{{ local_soft_dir }}/goenv\""
+      regexp: "^export GOENV_ROOT"
+    - line: 'export PATH="$GOENV_ROOT/bin:$PATH"'
+      regexp: '^export PATH\=\"\$GOENV'
+    - line: 'eval "$(goenv init -)"'
+      regexp: '^eval.+goenv init'
+    - line: 'export PATH="$GOROOT/bin:$PATH"'
+      regexp: '^export PATH.+GOROOT'
+    - line: 'export PATH="$GOPATH/bin:$PATH"'
+      regexp: '^export PATH.+GOPATH'
+
+  become: no

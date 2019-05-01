@@ -1,0 +1,10 @@
+---
+- name: Install pkgs
+  dnf:
+    name: "{{ go_pkgs }}"
+    state: present
+  vars:
+    go_pkgs:
+    - golang-golangorg-tools-devel
+    - golang
+    - golang-src
