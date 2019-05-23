@@ -1,9 +1,10 @@
 ---
-- include: terraform_installer.yml
-  tags:
-  - terraform
-  - hashicorp
-  - installation
+# for now I use tfenv for working with Terraform
+#- include: terraform_installer.yml
+#  tags:
+#  - terraform
+#  - hashicorp
+#  - installation
 
 - include: tfenv_installer.yml
   tags:
