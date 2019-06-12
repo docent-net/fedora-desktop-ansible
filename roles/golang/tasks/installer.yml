@@ -8,3 +8,4 @@
     - golang-golangorg-tools-devel
     - golang
     - golang-src
+    - golang-googlecode-tools-goimports
