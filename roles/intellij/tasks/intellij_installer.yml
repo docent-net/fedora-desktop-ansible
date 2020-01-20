@@ -17,20 +17,20 @@
 - block:
   - name: Download package
     get_url: >
-      dest={{ temp_dir }}/idea.tar.gz
-      url="https://download.jetbrains.com/idea/ideaIU-2019.3.1.tar.gz"
+      dest: "{{ temp_dir }}/idea.tar.gz"
+      url: "https://download.jetbrains.com/idea/ideaIU-2019.3.1.tar.gz"
 
   - name: Ensure Idea directory is removed
-    file: >
-      path={{ local_soft_dir }}/Idea
-      state=absent
+    file:
+      path: "{{ local_soft_dir }}/Idea"
+      state: "absent"
 
   - name: Extract archive
-    unarchive: >
-      src={{ temp_dir }}/idea.tar.gz
-      dest={{ local_soft_dir }}/
-      group={{ group }}
-      owner={{ user }}
+    unarchive:
+      src: "{{ temp_dir }}/idea.tar.gz"
+      dest: "{{ local_soft_dir }}/"
+      group: "{{ group }}"
+      owner: "{{ user }}"
   when: idea_state.stat.exists == false or update_apps | default('') != ''
 
 # details aboout this operation: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
@@ -38,6 +38,6 @@
   sysctl:
       sysctl_file: /etc/sysctl.d/idea.conf
       name: fs.inotify.max_user_watches
-      value: 524288
+      value: "524288"
       reload: yes
       state: present
